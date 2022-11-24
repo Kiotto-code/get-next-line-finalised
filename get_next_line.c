@@ -90,30 +90,6 @@ char	*currentline(char **string)
 	return (ret);
 }
 
-char	*remain(char *str)
-{
-	char	*ret;
-	int		c_len;
-	int		i;
-
-	c_len = 0;
-	while ((str)[c_len] && (str)[c_len] != '\n')
-		c_len++;
-	if (!str[c_len])
-	{
-		free(str);
-		return (NULL);
-	}
-	ret = malloc(sizeof(char) * (ft_strlen(str) - c_len + 1));
-	c_len++;
-	i = 0;
-	while (str[c_len])
-		ret[i++] = str[c_len++];
-	ret[i] = '\0';
-	free(str);
-	return (ret);
-}
-
 char	*get_next_line(int fd)
 {
 	static char	*str;
